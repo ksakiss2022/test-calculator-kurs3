@@ -9,23 +9,25 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/calculator")
 public class CalculatorController {
-    private final CalculatorService calculatorService=new CalculatorService();
-    @GetMapping ("/plus")
-    public Integer plus(@RequestParam("number_1")Integer a, @RequestParam("number_2") Integer b){
+    private final CalculatorService calculatorService = new CalculatorService();
+
+    @GetMapping("/plus")
+    public Integer plus(@RequestParam("number_1") Integer a, @RequestParam("number_2") Integer b) {
         return this.calculatorService.plus(a, b);
     }
-    @GetMapping ("/minus")
-    public Integer minus(@RequestParam("number_1")Integer a, @RequestParam("number_2") Integer b){
+
+    @GetMapping("/minus")
+    public Integer minus(@RequestParam("number_1") Integer a, @RequestParam("number_2") Integer b) {
         return this.calculatorService.minus(a, b);
     }
 
-    @GetMapping ("/multiplication")
-    public Integer multiplication(@RequestParam("number_1")Integer a, @RequestParam("number_2") Integer b){
+    @GetMapping("/multiplication")
+    public Integer multiplication(@RequestParam("number_1") Integer a, @RequestParam("number_2") Integer b) {
         return this.calculatorService.multiplication(a, b);
     }
 
-    @GetMapping ("/division")
-    public double division(@RequestParam("number_1")Integer a, @RequestParam("number_2") Integer b){
+    @GetMapping("/division")
+    public double division(@RequestParam("number_1") Integer a, @RequestParam("number_2") Integer b) {
         return this.calculatorService.division(a, b);
     }
 

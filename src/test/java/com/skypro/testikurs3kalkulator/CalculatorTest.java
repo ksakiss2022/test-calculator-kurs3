@@ -12,9 +12,19 @@ public class CalculatorTest {
     private final Integer NUMBER_4 = 4;
 
     private final CalculatorService calculatorService = new CalculatorService();
-@BeforeEach
+
+    @BeforeEach
     @Test
     public void checkingThePlus1() {
+        Integer expected = calculatorService.plus
+                (NUMBER_3, NUMBER_4);
+        Integer actual = NUMBER_3 + NUMBER_4;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void checkingThePlus2() {
         Integer expected = calculatorService.plus
                 (NUMBER_1, NUMBER_2);
         Integer actual = NUMBER_1 + NUMBER_2;
@@ -23,19 +33,10 @@ public class CalculatorTest {
     }
 
     @Test
-    public void checkingThePlus2() {
-        Integer expected = calculatorService.plus
-                (NUMBER_3, NUMBER_2);
-        Integer actual = NUMBER_2 + NUMBER_3;
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
     public void checkingThePlus3() {
         Integer expected = calculatorService.plus
                 (NUMBER_3, NUMBER_1);
-        Integer actual = NUMBER_1 + NUMBER_3;
+        Integer actual = NUMBER_3 + NUMBER_1;
 
         Assertions.assertEquals(expected, actual);
     }
