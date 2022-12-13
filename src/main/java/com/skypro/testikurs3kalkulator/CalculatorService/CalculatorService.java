@@ -2,8 +2,6 @@ package com.skypro.testikurs3kalkulator.CalculatorService;
 
 import org.springframework.stereotype.Service;
 
-import static org.apache.coyote.http11.Constants.a;
-
 @Service
 public class CalculatorService {
     public Integer plus(Integer a, Integer b) {
@@ -15,7 +13,7 @@ public class CalculatorService {
         return a - b;
     }
 
-    public double division(int a, int b) {
+    public double division(double a, int b) {
         return (double) a / b;
     }
 
@@ -24,16 +22,10 @@ public class CalculatorService {
     }
 
     public Integer notEqualToNullA(Integer a) {
-        if (a == null) {
-            throw new IllegalArgumentException("Не заданы параметры -a-");
-        }
         return a = 0;
     }
 
-    public Integer notEqualToNulBA(Integer b) {
-        if (b == null) {
-            throw new IllegalArgumentException("Не заданы параметры -b-");
-        }
+    public Integer notEqualToNullB(Integer b) {
         return b = 0;
     }
 }

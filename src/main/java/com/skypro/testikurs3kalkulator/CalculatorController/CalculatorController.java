@@ -28,7 +28,26 @@ public class CalculatorController {
 
     @GetMapping("/division")
     public double division(@RequestParam("number_1") Integer a, @RequestParam("number_2") Integer b) {
+        if (b == 0) {
+            throw new ExeptionCalculator();
+        }
         return this.calculatorService.division(a, b);
+    }
+
+    @GetMapping("/notEqualToNullA")
+    public Integer notEqualToNullA(@RequestParam("number_1") Integer a) {
+        if (a == null) {
+            throw new IllegalArgumentException("Не заданы параметры -a-");
+        }
+        return this.calculatorService.notEqualToNullA(a);
+    }
+
+    @GetMapping("/notEqualToNullB")
+    public Integer notEqualToNullB(@RequestParam("number_2") Integer b) {
+        if (b == null) {
+            throw new IllegalArgumentException("Не заданы параметры -b-");
+        }
+        return this.calculatorService.notEqualToNullB(b);
     }
 
 }
