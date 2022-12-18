@@ -1,15 +1,18 @@
 package com.skypro.testikurs3kalkulator;
 
+import com.skypro.testikurs3kalkulator.CalculatorController.ExeptionCalculator;
 import com.skypro.testikurs3kalkulator.CalculatorService.CalculatorService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 public class CalculatorTest {
     private final Integer NUMBER_1 = 1;
     private final Integer NUMBER_2 = 2;
     private final Integer NUMBER_3 = 3;
     private final Integer NUMBER_4 = 4;
+    private final Integer NULL = null;
 
 
     private final CalculatorService calculatorService = new CalculatorService();
@@ -49,6 +52,7 @@ public class CalculatorTest {
         Integer actual = NUMBER_4 + NUMBER_1;
 
         Assertions.assertEquals(expected, actual);
+
     }
 
     @Test
@@ -157,5 +161,23 @@ public class CalculatorTest {
         double actual = (double) NUMBER_4 / NUMBER_1;
 
         Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void testExeptionCalculatorPlus() {
+        Assertions.assertThrows(ExeptionCalculator.class, () ->
+                calculatorService.plus(null, null), "Не заданы параметры a или b");
+    }
+
+    @Test
+    void testExeptionCalculatorMinus() {
+        Assertions.assertThrows(ExeptionCalculator.class, () ->
+                calculatorService.minus(null, null), "Не заданы параметры a или b");
+    }
+
+    @Test
+    void testExeptionCalculatorMultiplication() {
+        Assertions.assertThrows(ExeptionCalculator.class, () ->
+                calculatorService.multiplication(null, null), "Не заданы параметры a или b");
     }
 }

@@ -18,8 +18,8 @@ public class CalculatorParametrizedTest {
     private final Integer NUMBER_7 = 7;
     private final Integer NUMBER_8 = 8;
     private final Integer ZERO = 0;
-//    private int a;
-//    private int b;
+    private final Integer NULL= null;
+
 
     @BeforeEach
     @ParameterizedTest
@@ -50,6 +50,7 @@ public class CalculatorParametrizedTest {
     public void multiplicationParametrizedTest1(Integer a, Integer b) {
         Integer result = calculatorService.multiplication(a, b);
         assertEquals(a * b, result);
+
     }
 
 
@@ -65,35 +66,36 @@ public class CalculatorParametrizedTest {
                 Arguments.of(NUMBER_7, NUMBER_5),
                 Arguments.of(NUMBER_7, ZERO));
 
+
     }
 
-    @ParameterizedTest
-    @MethodSource("parametersForTestsNotNull")
-    public void notEqualToNullAParametrizedTest1(Integer a, Object assertThrows, Assertions AssertThrows) {
-        Integer result = calculatorService.notEqualToNullA(a);
-        assertThrows(null, null);
-    }
+//    @ParameterizedTest
+//    @MethodSource("parametersForTestsNotNull")
+//    public void notEqualToNullAParametrizedTest1(Integer a, Object assertThrows, Assertions AssertThrows) {
+//        Integer result = calculatorService.notEqualToNullA(a);
+//        assertThrows(null, null);
+//    }
+//
+//
+//
+//
+//    @ParameterizedTest
+//    @MethodSource("parametersForTestsNotNull")
+//    public void notEqualToNullBParametrizedTest1(Integer b,Object assertThrows, Assertions AssertThrows) {
+//        Integer result = calculatorService.notEqualToNullB(b);
+//        assertThrows(null, null);
+//    }
 
-
-
-
-    @ParameterizedTest
-    @MethodSource("parametersForTestsNotNull")
-    public void notEqualToNullBParametrizedTest1(Integer b,Object assertThrows, Assertions AssertThrows) {
-        Integer result = calculatorService.notEqualToNullB(b);
-        assertThrows(null, null);
-    }
-
-    public Stream<Arguments> parametersForTestsNotNull() {
-        return Stream.of(
-
-                Arguments.of(NUMBER_6),
-                Arguments.of(NUMBER_5),
-                Arguments.of(NUMBER_8),
-                Arguments.of(NUMBER_7),
-               Arguments.of(ZERO));
-    }
-
-    private static class AssertThrows {
-    }
+//    public Stream<Arguments> parametersForTestsNotNull() {
+//        return Stream.of(
+//
+//                Arguments.of(NUMBER_6),
+//                Arguments.of(NUMBER_5),
+//                Arguments.of(NUMBER_8),
+//                Arguments.of(NUMBER_7),
+//               Arguments.of(ZERO));
+//    }
+//
+//    private static class AssertThrows {
+//    }
 }
